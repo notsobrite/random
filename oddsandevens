@@ -1,5 +1,5 @@
 <?php
-// ARGS IN FUTURE
+// Grab Arguements 
 if(count($argv) != 3) {
         die("Not enough arguments!\n");
 
@@ -7,29 +7,29 @@ if(count($argv) != 3) {
 $csvIN = fopen($argv[1], "r");
 $csvOUT = fopen($argv[2], "w");
 
-// INFLUX DATA
+// Influx Data From Argument Variables
 if($csvIN) {
         while(!feof($csvIN)) {
         $inData[] = fgetcsv($csvIN, ",");
         }
 }
-// CATALOG INFO_1 & INFO_2 and DUMP UNWANTED VALUES
+// Catalog info_1 and info_2 and dump unwanted outData values
 foreach($inData as $key => $value) {
-        unset($inData[$key][7]); // REMOVE BULL STUFF
-        unset($inData[$key][0]); // REMOVE MORE BULL STUFF
+        unset($inData[$key][7]); // Remove unwanted values.
+        unset($inData[$key][0]); // Remove unwanted values.
         $info_1[] = $key[1];
         $info_2[] = $key[2];
 }
-// SORT BY INFO_1 THEN BY INFO_2
+// Sorty By info_1 and then by info_2
 array_multisort($info_1, SORT_ASC, $info_2, SORT_ASC, $inData);
 
-// SETUP VARIABLES FOR LOOP
+// Setup variables for loop.
 $outData = array();
 $currInfo_2Name=$inData[0][2];
-$i=0;
-$ii=0;
+$evenCount = 0;
+$oddCount = 0;
 
-// LOOP OVER SAID DATA MATCHING 2 ODDS AND 2 EVEN INFO_3'S PER INFO_2  
+// Loop over said data matching 2 odds and 2 evens inData[3] based on info_2  
 foreach($inData as $key) {
         if ($key[2] == NULL || $key[3] == NULL || $key[2] == "NULL" || $key[3] == "NULL") {
                 continue;
@@ -51,7 +51,7 @@ foreach($inData as $key) {
         }
 }
 
-// WRITE OUT FILE
+// Write to out file.
         foreach($outData as $data) {
                 fputcsv($csvOUT, $data);
 }
