@@ -1,8 +1,8 @@
 <?php
-// Finding Pastebins 
+// Finding Pastebins
 //
 // I was bored the other night browsing public pastebins so I wrote a script that may
-// or may not find a private/public/interesting pastebin. Saving time and effort. 
+// or may not find a private/public/interesting pastebin. Saving time and effort.
 // by NotSoBrite
 //
 
@@ -22,13 +22,16 @@ function get_pbstring() {
 // It will then echo out the winner.
 
 if($argv[1] == "get") {
-        for ($i = 0; $i < 1; $i++) {
+        $i = 0;
+        while($i < 1) {
         $pastebin = "http://www.pastebin.com/".get_pbstring();
-        $html = file_get_contents($pastebin);
-        if($html) {
-                echo $pastebin;
+        $html = get_headers($pastebin);
+        $html = substr($html[0], 9, 3);
+        if($html != "404") {
+                echo $pastebin."\n";
                 $i++;
                 }
+
         }
 }
 ?>
