@@ -1,0 +1,25 @@
+<?php
+// FUNCTIONS
+function get_pbstring() {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+        for ($i = 0; $i < 8; $i++) {
+                $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+}
+// THIS WILL CONTINUE TO GENERATE A RANDOM 8 CHARACTER
+// VARIABLE UNTIL $HTML DOES NOT READ A 404 ERROR
+// IT WILL THEN ECHO OUT THE WINNNER.
+
+if($argv[1] == "get") {
+        for ($i = 0; $i < 1; $++) {
+        $pastebin = "http://www.pastebin.com/".get_pbstring();
+        $html = file_get_contents($pastebin);
+        if($html) {
+                echo $pastebin;
+                $i++;
+                }
+        }
+}
+?>
