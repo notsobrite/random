@@ -1,4 +1,11 @@
 <?php
+// Finding Pastebins 
+//
+// I was bored the other night browsing public pastebins so I wrote a script that may
+// or may not find a private/public/interesting pastebin. Saving time and effort. 
+// by NotSoBrite
+//
+
 // FUNCTIONS
 function get_pbstring() {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -10,9 +17,10 @@ function get_pbstring() {
 }
 
 
-// THIS WILL CONTINUE TO GENERATE A RANDOM 8 CHARACTER
-// VARIABLE UNTIL $HTML DOES NOT READ A 404 ERROR
-// IT WILL THEN ECHO OUT THE WINNNER.
+// This will continue to generate a random 8 character
+// until $html does not read a 404 error.
+// It will then echo out the winner.
+
 if($argv[1] == "get") {
         for ($i = 0; $i < 1; $++) {
         $pastebin = "http://www.pastebin.com/".get_pbstring();
