@@ -39,14 +39,14 @@ foreach($inData as $key) {
                 $ii = 0;
                 $currInfo_2Name = $key[2];
         }
-        if($i < 2 && $key[3] % 2 == 0) {
+        if($evenCount < 2 && $key[3] % 2 == 0) {
                 $outData[] = $key;
-                $i++;
+                $evenCount++;
                 $currInfo_2Name = $key[2];
         }
-        if($ii < 2 && $key[3] % 2 != 0) {
+        if($oddCount < 2 && $key[3] % 2 != 0) {
                 $outData[] = $key;
-                $ii++;
+                $oddCount++;
                 $currInfo_2Name = $key[2];
         }
 }
