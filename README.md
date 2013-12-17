@@ -1,4 +1,4 @@
 random
 ======
 
-Just a bunch of stuff I do when I'm bored.
+Stuff that I have done. 
