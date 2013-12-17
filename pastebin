@@ -22,7 +22,7 @@ function get_pbstring() {
 // It will then echo out the winner.
 
 if($argv[1] == "get") {
-        for ($i = 0; $i < 1; $++) {
+        for ($i = 0; $i < 1; $i++) {
         $pastebin = "http://www.pastebin.com/".get_pbstring();
         $html = file_get_contents($pastebin);
         if($html) {
