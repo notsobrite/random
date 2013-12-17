@@ -1,4 +1,11 @@
 <?php
+// Incoming CSV data was as follows:
+// info_0,info_1,info_2,info_3,info_4,info_5,info_6,info_7
+//
+// The goal was to get the first 2 even and first 2 odd info_3 to each info_2 and disregard the rest. 
+// by NotSoBrite
+//
+
 // Grab Arguements 
 if(count($argv) != 3) {
         die("Not enough arguments!\n");
