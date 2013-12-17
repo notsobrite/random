@@ -35,8 +35,8 @@ foreach($inData as $key) {
                 continue;
         }
         if ($key[2] != $currInfo_2Name){
-                $i = 0;
-                $ii = 0;
+                $evenCount = 0;
+                $oddCount = 0;
                 $currInfo_2Name = $key[2];
         }
         if($evenCount < 2 && $key[3] % 2 == 0) {
