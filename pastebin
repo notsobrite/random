@@ -8,10 +8,11 @@ function get_pbstring() {
         }
         return $randomString;
 }
+
+
 // THIS WILL CONTINUE TO GENERATE A RANDOM 8 CHARACTER
 // VARIABLE UNTIL $HTML DOES NOT READ A 404 ERROR
 // IT WILL THEN ECHO OUT THE WINNNER.
-
 if($argv[1] == "get") {
         for ($i = 0; $i < 1; $++) {
         $pastebin = "http://www.pastebin.com/".get_pbstring();
