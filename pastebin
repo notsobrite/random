@@ -6,7 +6,15 @@
 // by NotSoBrite
 //
 
-// FUNCTIONS
+// Get head only thanks for the tip haro.
+stream_context_set_default(
+    array(
+        'http' => array(
+            'method' => 'HEAD'
+        )
+    )
+);
+// Generate a 8 character var
 function get_pbstring() {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $randomString = '';
@@ -15,8 +23,6 @@ function get_pbstring() {
         }
         return $randomString;
 }
-
-
 // This will continue to generate a random 8 character
 // until $html does not read a 404 error.
 // It will then echo out the winner.
@@ -24,14 +30,13 @@ function get_pbstring() {
 if($argv[1] == "get") {
         $i = 0;
         while($i < 1) {
-        $pastebin = "http://www.pastebin.com/".get_pbstring();
+        $pastebin = "http://pastebin.com/".get_pbstring();
         $html = get_headers($pastebin);
         $html = substr($html[0], 9, 3);
-        if($html != "404") {
+        if($html == "200") {
                 echo $pastebin."\n";
                 $i++;
                 }
-
         }
 }
 ?>
